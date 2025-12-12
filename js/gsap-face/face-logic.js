@@ -1,41 +1,40 @@
 document.addEventListener('DOMContentLoaded', function() {
     
-    // ELEMENTS ARE SELECTED INSIDE THE LISTENER, GUARANTEEING THEY EXIST
+    // ELEMENTS SELECTED AFTER DOM IS READY
     const faceButton = document.querySelector('.face-button');
     const faceContainer = document.querySelector('.face-container');
-    const containerCoords = document.querySelector('#container');
+    const containerCoords = document.querySelector('#container'); // The HTML element
     
-    // Ensure elements are found before proceeding
+    // Only proceed if all elements are found
     if (containerCoords && faceButton && faceContainer) {
         
-        // NOW GET THE COORDINATES, GUARANTEED TO BE CORRECT AFTER DOMContentLoaded
+        // Get the initial dimensions and offsets
         const mouseCoords = containerCoords.getBoundingClientRect();
+
+        // **FIX:** Use offsetLeft/Top for document-relative position
+        const containerOffsetX = containerCoords.offsetLeft;
+        const containerOffsetY = containerCoords.offsetTop;
         
-        // Use the correct offset calculation method for GSAP:
-        const containerOffsetX = containerCoords.getBoundingClientRect().left;
-        const containerOffsetY = containerCoords.getBoundingClientRect().top;
-
-
+        // --- MOUSE MOVE LISTENER (Button Movement) ---
         faceButton.addEventListener('mousemove', function(e) {
-          // Use e.clientX/Y (relative to viewport) and subtract the container's screen offset
-          const mouseX = e.clientX - containerOffsetX;
-          const mouseY = e.clientY - containerOffsetY;
+          // Use e.pageX/Y (mouse position relative to the document)
+          // and subtract the container's document offset (containerOffsetX/Y)
+          const mouseX = e.pageX - containerOffsetX;
+          const mouseY = e.pageY - containerOffsetY;
           
           gsap.to(faceButton, {
               duration: 0.3, 
-              // The logic here is correct, but the inputs (mouseX, mouseY) need to be reliable
+              // Calculation logic based on offset:
               x: (mouseX - mouseCoords.width / 2) / mouseCoords.width * 50,
               y: (mouseY - mouseCoords.height / 2) / mouseCoords.width * 50,
               ease: "power4.out"
             });
         });
 
-        // (The rest of your event listeners for mousemove, mouseenter, mouseleave...)
-
+        // --- MOUSE MOVE LISTENER (Inner Face Movement) ---
         faceButton.addEventListener('mousemove', function(e) {
-            // ... (your existing logic for faceContainer movement)
-            const mouseX = e.clientX - containerOffsetX;
-            const mouseY = e.clientY - containerOffsetY;
+            const mouseX = e.pageX - containerOffsetX;
+            const mouseY = e.pageY - containerOffsetY;
             
             gsap.to(faceContainer, {
                 duration: 0.3, 
@@ -45,6 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
 
+        // --- MOUSE ENTER/LEAVE LISTENERS ---
         faceButton.addEventListener('mouseenter', function(e) {
           gsap.to(faceButton, {
             duration: 0.3, 
