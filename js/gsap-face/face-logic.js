@@ -1,6 +1,6 @@
 const faceButton = document.querySelector('.face-button');
 const faceContainer = document.querySelector('.face-container');
-const containerCoords = document.querySelector('#container');
+const containerCoords = document.querySelector('#face-container');
 
 // Ensure the containerCoords element is found before getting BoundingClientRect
 if (containerCoords && faceButton && faceContainer) {
