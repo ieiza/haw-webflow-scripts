@@ -1,30 +1,32 @@
 document.addEventListener('DOMContentLoaded', function() {
     
+    // We only need the element coordinates inside the button's event listeners
     const faceButton = document.querySelector('.face-button');
     const faceContainer = document.querySelector('.face-container');
-    const containerCoords = document.querySelector('#container');
+    const containerCoords = document.querySelector('#container'); 
     
     if (containerCoords && faceButton && faceContainer) {
         
+        // Get the initial dimensions
+        const rect = faceButton.getBoundingClientRect();
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
         // --- MOUSE MOVE LISTENER (Button Movement) ---
         faceButton.addEventListener('mousemove', function(e) {
           
-          // **NEW CALCULATION:** Get mouse position relative to the button itself (0 to width/height)
-          const rect = faceButton.getBoundingClientRect();
-          const mouseX = e.clientX - rect.left; // Mouse X relative to the button's left edge
-          const mouseY = e.clientY - rect.top;   // Mouse Y relative to the button's top edge
-          
-          const centerX = rect.width / 2;
-          const centerY = rect.height / 2;
+          // **NEW RELIABLE CALCULATION:** Use e.offsetX/Y (mouse position relative to the target element)
+          const mouseX = e.offsetX; 
+          const mouseY = e.offsetY; 
           
           // Calculate normalized movement (-1 to 1) based on center offset
-          const normalizedX = (mouseX - centerX) / rect.width;
-          const normalizedY = (mouseY - centerY) / rect.height;
+          const normalizedX = (mouseX - centerX) / centerX;
+          const normalizedY = (mouseY - centerY) / centerY;
           
           // Apply movement to the Button (50px max movement)
           gsap.to(faceButton, {
               duration: 0.3, 
-              x: normalizedX * 50,
+              x: normalizedX * 50, // Max 50px travel
               y: normalizedY * 50,
               ease: "power4.out"
             });
@@ -32,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
           // Apply movement to the Face Container (25px max movement)
           gsap.to(faceContainer, {
               duration: 0.3, 
-              x: normalizedX * 25,
+              x: normalizedX * 25, // Max 25px travel
               y: normalizedY * 25,
               ease: "power4.out"
             });
@@ -40,26 +42,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // --- MOUSE ENTER/LEAVE LISTENERS ---
         faceButton.addEventListener('mouseenter', function(e) {
-          gsap.to(faceButton, {
-            duration: 0.3, 
-            scale: 0.975
-          });
+          gsap.to(faceButton, { duration: 0.3, scale: 0.975 });
         });
 
         faceButton.addEventListener('mouseleave', function(e) {
-          gsap.to(faceButton, {
-            duration: 0.3, 
-            x: 0,
-            y: 0,
-            scale: 1
-          });
-          
-          gsap.to(faceContainer, {
-            duration: 0.3, 
-            x: 0,
-            y: 0,
-            scale: 1
-          });
+          gsap.to(faceButton, { duration: 0.3, x: 0, y: 0, scale: 1 });
+          gsap.to(faceContainer, { duration: 0.3, x: 0, y: 0, scale: 1 });
         });
 
     } else {
