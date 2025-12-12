@@ -1,46 +1,40 @@
 document.addEventListener('DOMContentLoaded', function() {
     
-    // ELEMENTS SELECTED AFTER DOM IS READY
     const faceButton = document.querySelector('.face-button');
     const faceContainer = document.querySelector('.face-container');
-    const containerCoords = document.querySelector('#container'); // The HTML element
+    const containerCoords = document.querySelector('#container');
     
-    // Only proceed if all elements are found
     if (containerCoords && faceButton && faceContainer) {
-        
-        // Get the initial dimensions and offsets
-        const mouseCoords = containerCoords.getBoundingClientRect();
-
-        // **FIX:** Use offsetLeft/Top for document-relative position
-        const containerOffsetX = containerCoords.offsetLeft;
-        const containerOffsetY = containerCoords.offsetTop;
         
         // --- MOUSE MOVE LISTENER (Button Movement) ---
         faceButton.addEventListener('mousemove', function(e) {
-          // Use e.pageX/Y (mouse position relative to the document)
-          // and subtract the container's document offset (containerOffsetX/Y)
-          const mouseX = e.pageX - containerOffsetX;
-          const mouseY = e.pageY - containerOffsetY;
           
+          // **NEW CALCULATION:** Get mouse position relative to the button itself (0 to width/height)
+          const rect = faceButton.getBoundingClientRect();
+          const mouseX = e.clientX - rect.left; // Mouse X relative to the button's left edge
+          const mouseY = e.clientY - rect.top;   // Mouse Y relative to the button's top edge
+          
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          
+          // Calculate normalized movement (-1 to 1) based on center offset
+          const normalizedX = (mouseX - centerX) / rect.width;
+          const normalizedY = (mouseY - centerY) / rect.height;
+          
+          // Apply movement to the Button (50px max movement)
           gsap.to(faceButton, {
               duration: 0.3, 
-              // Calculation logic based on offset:
-              x: (mouseX - mouseCoords.width / 2) / mouseCoords.width * 50,
-              y: (mouseY - mouseCoords.height / 2) / mouseCoords.width * 50,
+              x: normalizedX * 50,
+              y: normalizedY * 50,
               ease: "power4.out"
             });
-        });
-
-        // --- MOUSE MOVE LISTENER (Inner Face Movement) ---
-        faceButton.addEventListener('mousemove', function(e) {
-            const mouseX = e.pageX - containerOffsetX;
-            const mouseY = e.pageY - containerOffsetY;
             
-            gsap.to(faceContainer, {
-                duration: 0.3, 
-                x: (mouseX - mouseCoords.width / 2) / mouseCoords.width * 25,
-                y: (mouseY - mouseCoords.height / 2) / mouseCoords.width * 25,
-                ease: "power4.out"
+          // Apply movement to the Face Container (25px max movement)
+          gsap.to(faceContainer, {
+              duration: 0.3, 
+              x: normalizedX * 25,
+              y: normalizedY * 25,
+              ease: "power4.out"
             });
         });
 
