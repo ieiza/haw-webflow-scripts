@@ -1,53 +1,79 @@
 document.addEventListener('DOMContentLoaded', function() {
     
-    // We only need the element coordinates inside the button's event listeners
+    // Select elements after DOM is ready
     const faceButton = document.querySelector('.face-button');
     const faceContainer = document.querySelector('.face-container');
-    const containerCoords = document.querySelector('#container'); 
+    const containerCoords = document.querySelector('#container');
     
+    // Check for element existence before proceeding
     if (containerCoords && faceButton && faceContainer) {
         
-        // Get the initial dimensions
+        // Get initial dimensions (needed for relative movement calculation)
         const rect = faceButton.getBoundingClientRect();
         const centerX = rect.width / 2;
         const centerY = rect.height / 2;
+        
+        // Get the initial page offset of the container for reliable calculations
+        const containerOffsetX = containerCoords.offsetLeft;
+        const containerOffsetY = containerCoords.offsetTop;
 
-        // --- MOUSE MOVE LISTENER (Button Movement) ---
+        // --- MOUSE MOVE LISTENER (GSAP V3 TRANSLATION) ---
         faceButton.addEventListener('mousemove', function(e) {
-          
-          // **NEW RELIABLE CALCULATION:** Use e.offsetX/Y (mouse position relative to the target element)
-          const mouseX = e.offsetX; 
-          const mouseY = e.offsetY; 
-          
-          // Calculate normalized movement (-1 to 1) based on center offset
-          const normalizedX = (mouseX - centerX) / centerX;
-          const normalizedY = (mouseY - centerY) / centerY;
-          
-          // Apply movement to the Button (50px max movement)
-          gsap.to(faceButton, {
-              duration: 0.3, 
-              x: normalizedX * 50, // Max 50px travel
-              y: normalizedY * 50,
-              ease: "power4.out"
-            });
             
-          // Apply movement to the Face Container (25px max movement)
-          gsap.to(faceContainer, {
-              duration: 0.3, 
-              x: normalizedX * 25, // Max 25px travel
-              y: normalizedY * 25,
-              ease: "power4.out"
+            // Mouse position relative to the container element
+            const mouseX = e.pageX - containerOffsetX;
+            const mouseY = e.pageY - containerOffsetY;
+            
+            // Calculate normalized movement (-1 to 1) based on center offset
+            const normalizedX = (mouseX - centerX) / rect.width;
+            const normalizedY = (mouseY - centerY) / rect.height;
+
+            // 1. Move the outer button
+            // OLD: TweenMax.to(faceButton, 0.3, { x: (mouseX - width / 2) / width * 50, ease: Power4.easeOut })
+            gsap.to(faceButton, {
+                duration: 0.3, 
+                // x/y calculated based on normalized position inside the button
+                x: normalizedX * 50,
+                y: normalizedY * 50,
+                ease: "power4.out" // V3 syntax for Power4.easeOut
+            });
+
+            // 2. Move the inner face container
+            // OLD: TweenMax.to(faceContainer, 0.3, { x: (mouseX - width / 2) / width * 25, ease: Power4.easeOut })
+            gsap.to(faceContainer, {
+                duration: 0.3, 
+                x: normalizedX * 25,
+                y: normalizedY * 25,
+                ease: "power4.out"
             });
         });
 
-        // --- MOUSE ENTER/LEAVE LISTENERS ---
+        // --- MOUSE ENTER/LEAVE LISTENERS (GSAP V3 TRANSLATION) ---
+        
         faceButton.addEventListener('mouseenter', function(e) {
-          gsap.to(faceButton, { duration: 0.3, scale: 0.975 });
+            // OLD: TweenMax.to(faceButton, 0.3, { scale: 0.975 })
+            gsap.to(faceButton, {
+                duration: 0.3, 
+                scale: 0.975
+            });
         });
 
         faceButton.addEventListener('mouseleave', function(e) {
-          gsap.to(faceButton, { duration: 0.3, x: 0, y: 0, scale: 1 });
-          gsap.to(faceContainer, { duration: 0.3, x: 0, y: 0, scale: 1 });
+            // OLD: TweenMax.to(faceButton, 0.3, { x: 0, y: 0, scale: 1 })
+            gsap.to(faceButton, {
+                duration: 0.3, 
+                x: 0,
+                y: 0,
+                scale: 1
+            });
+            
+            // OLD: TweenMax.to(faceContainer, 0.3, { x: 0, y: 0, scale: 1 })
+            gsap.to(faceContainer, {
+                duration: 0.3, 
+                x: 0,
+                y: 0,
+                scale: 1
+            });
         });
 
     } else {
