@@ -83,3 +83,12 @@ function sketch(p) {
         faceCenter = p.createVector(p.width / 2, p.height / 2);
     }
 }
+
+// ==========================================================
+// **MISSING CLOSING LOGIC (Execution)**
+// ==========================================================
+
+// This ensures the sketch runs only after the p5.js library and the HTML are fully loaded.
+window.onload = function() {
+    let myp5 = new p5(sketch);
+};
