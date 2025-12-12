@@ -8,6 +8,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Check for element existence before proceeding
     if (containerCoords && faceButton && faceContainer) {
         
+        // --- CRITICAL CSS OVERRIDE FIX ---
+        // We use GSAP to set the container to position: relative and reset any inherited transforms.
+        gsap.set(containerCoords, { position: "relative", transformStyle: "flat" }); 
+        
         // Get initial dimensions (needed for relative movement calculation)
         const rect = faceButton.getBoundingClientRect();
         const centerX = rect.width / 2;
@@ -29,17 +33,14 @@ document.addEventListener('DOMContentLoaded', function() {
             const normalizedY = (mouseY - centerY) / rect.height;
 
             // 1. Move the outer button
-            // OLD: TweenMax.to(faceButton, 0.3, { x: (mouseX - width / 2) / width * 50, ease: Power4.easeOut })
             gsap.to(faceButton, {
                 duration: 0.3, 
-                // x/y calculated based on normalized position inside the button
                 x: normalizedX * 50,
                 y: normalizedY * 50,
-                ease: "power4.out" // V3 syntax for Power4.easeOut
+                ease: "power4.out" 
             });
 
             // 2. Move the inner face container
-            // OLD: TweenMax.to(faceContainer, 0.3, { x: (mouseX - width / 2) / width * 25, ease: Power4.easeOut })
             gsap.to(faceContainer, {
                 duration: 0.3, 
                 x: normalizedX * 25,
@@ -48,10 +49,9 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
 
-        // --- MOUSE ENTER/LEAVE LISTENERS (GSAP V3 TRANSLATION) ---
+        // --- MOUSE ENTER/LEAVE LISTENERS ---
         
         faceButton.addEventListener('mouseenter', function(e) {
-            // OLD: TweenMax.to(faceButton, 0.3, { scale: 0.975 })
             gsap.to(faceButton, {
                 duration: 0.3, 
                 scale: 0.975
@@ -59,7 +59,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         faceButton.addEventListener('mouseleave', function(e) {
-            // OLD: TweenMax.to(faceButton, 0.3, { x: 0, y: 0, scale: 1 })
             gsap.to(faceButton, {
                 duration: 0.3, 
                 x: 0,
@@ -67,7 +66,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 scale: 1
             });
             
-            // OLD: TweenMax.to(faceContainer, 0.3, { x: 0, y: 0, scale: 1 })
             gsap.to(faceContainer, {
                 duration: 0.3, 
                 x: 0,
