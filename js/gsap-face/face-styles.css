@@ -1,3 +1,4 @@
+<style>
 #gsap-face-anchor {
   display: flex;
   align-items: center;
@@ -84,3 +85,4 @@
     transform: scale(1,0);
   }
 }
+</style>
