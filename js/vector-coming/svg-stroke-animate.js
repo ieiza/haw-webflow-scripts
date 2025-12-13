@@ -25,13 +25,13 @@ document.addEventListener('DOMContentLoaded', function() {
             delay: 0.5, // Start after a short delay
             drawSVG: "100%", 
             ease: "power2.inOut",
-            stagger: 0.15, // Stagger the animation slightly between different paths
+            stagger: 2, // Stagger the animation slightly between different paths
             
             // Optional: Add a simple color flash or transformation for creativity
             onComplete: function() {
                 gsap.to(vectors, {
                     duration: 0.5,
-                    fill: "black", // Fill the word once the stroke is complete
+                    fill: "none", // Fill the word once the stroke is complete
                     delay: 0.2
                 });
             }
