@@ -20,8 +20,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const mouseX = e.clientX - rect.left; 
             const mouseY = e.clientY - rect.top;
             
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
+            const centerX = rect.width / 10;
+            const centerY = rect.height / 10;
             
             // Normalize Movement (-1 to 1)
             const normalizedX = (mouseX - centerX) / centerX;
