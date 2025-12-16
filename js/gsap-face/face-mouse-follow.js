@@ -1,14 +1,14 @@
 document.addEventListener('DOMContentLoaded', function() {
     
-    const faceButton = document.querySelector('.face-button');
-    const faceContainer = document.querySelector('.face-container');
+    const faceButton = document.querySelector('.face-button-v2');
+    const faceContainer = document.querySelector('.face-container-v2');
     
     if (faceButton && faceContainer) {
         
         // Function to select specific inner elements for styling
-        const getMouth = () => faceContainer.querySelector('.mouth');
-        const getEyeLeft = () => faceContainer.querySelector('.eye.left');
-        const getEyeRight = () => faceContainer.querySelector('.eye.right');
+        const getMouth = () => faceContainer.querySelector('.mouth-v2');
+        const getEyeLeft = () => faceContainer.querySelector('.eye-v2.left');
+        const getEyeRight = () => faceContainer.querySelector('.eye-v2.right');
 
         // --- 1. MOUSE MOVEMENT LOGIC (Handles translation) ---
         faceButton.addEventListener('mousemove', function(e) {
