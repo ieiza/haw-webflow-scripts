@@ -1,14 +1,14 @@
 document.addEventListener('DOMContentLoaded', function() {
     
-    const faceButton = document.querySelector('.face-button-v2');
-    const faceContainer = document.querySelector('.face-container-v2');
+    const faceButton = document.querySelector('.face-button');
+    const faceContainer = document.querySelector('.face-container');
     
     if (faceButton && faceContainer) {
         
         // Function to select specific inner elements for styling
-        const getMouth = () => faceContainer.querySelector('.mouth-v2');
-        const getEyeLeft = () => faceContainer.querySelector('.eye-v2.left');
-        const getEyeRight = () => faceContainer.querySelector('.eye-v2.right');
+        const getMouth = () => faceContainer.querySelector('.mouth');
+        const getEyeLeft = () => faceContainer.querySelector('.eye.left');
+        const getEyeRight = () => faceContainer.querySelector('.eye.right');
 
         // --- 1. MOUSE MOVEMENT LOGIC (Handles translation) ---
         faceButton.addEventListener('mousemove', function(e) {
@@ -73,6 +73,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
     } else {
-        console.error("Face Follow JS: Could not find required elements (.face-button-v2 or .face-container-v2).");
+        console.error("Face Follow JS: Could not find required elements (.face-button or .face-container).");
     }
 });
