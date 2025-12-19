@@ -1,6 +1,13 @@
-const circleType = new CircleType(document.getElementById('cta-button--loop'));
+const circleType = new CircleType(document.getElementById('myElement'));
 
-circleType.radius(100);
+circleType.radius(384);
 
-// Adds spacing between letters to make a full rotation
-circleType.fullCircle();
+console.log(circleType.container);
+//=> <div style="position: relative; height: 3.18275em;">...</div>
+
+// Enable the force width option
+circleType.forceWidth(true);
+circleType.forceHeight(true);
+
+console.log(circleType.container);
+//=> <div style="position: relative; height: 3.18275em; width: 12.7473em;">...</div>
