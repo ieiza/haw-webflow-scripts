@@ -1,0 +1,28 @@
+[heading="1"] {
+
+}
+</style>
+<style>
+page-wrap{
+ display: block;
+ position: relative;
+}
+main{
+ display: block;
+ position: relative;
+}
+section{
+  display: block;
+  position: relative;
+}
+padding{
+ display: block;
+ position: relative;
+}
+container{
+ position: relative;
+}
+div{
+ position: relative;
+}
+</style>
