@@ -1,7 +1,5 @@
 const circleType = new CircleType(document.getElementById('myElement'));
 
-circleType.radius(384);
-
 console.log(circleType.container);
 //=> <div style="position: relative; height: 3.18275em;">...</div>
 
