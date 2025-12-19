@@ -1,4 +1,4 @@
-const circleType = new CircleType(document.getElementById('cta-button--loop'));
+const circleType = new CircleType(document.getElementById('circle-type'));
 
 console.log(circleType.container);
 //=> <div style="position: relative; height: 3.18275em;">...</div>
