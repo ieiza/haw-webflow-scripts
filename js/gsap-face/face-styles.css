@@ -1,80 +1,87 @@
-<style>
-#gsap-face-anchor {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 6.25rem;
-  height: 6.25rem;
-}
+/* ** CSS FOR FACE TRACKER **
+Uses pure CSS transitions for hover effects, and relies on a clean JS file 
+to handle the mouse tracking (face-mouse-follow.js).
+*/
 
-/* 2. INLINE CSS (Guaranteed Styles) */
-.face-button {
+/* --- A. BASE STRUCTURE & SIZING --- */
+.face-button-v2 {
+  /* Base Style: Defines the size and shape of the button/head */
   position: relative;
   display: inline-block;
   cursor: pointer;
   outline: none;
   border: 0;
   vertical-align: middle;
-  width: 6.25rem;
-  height: 6.25rem;
-  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
   background: #fdda5f; /* Face Color */
-  box-shadow: inset 2px -4px 18px #fd9744; 
+  box-shadow: inset 2px -4px 18px #fd9744;
+  box-shadow: -5px 12px 12px rgba(211, 198, 174, 0.2);
 }
 
-/* Inner elements */
-.face-container {
-  position: relative;
+.face-container-v2 {
+  /* Inner container for eyes/mouth */
+ 	position: relative;
   display: block;
-  width: 40px;
-  height: 20px;
+  width: 25%;
+  height: 25%;
   margin: auto;
 }
 
-.eye {
-  position: absolute;
-  height: 0.5rem;
-  width: 0.5rem;
+/* --- B. EYE & MOUTH STYLES --- */
+.eye-v2 {
+	position: absolute;
+  height: 30%;
+  width: 30%;
   background: #2a2927; /* Black */
-  border-radius: 50%;
+  border-radius: 100%;
   animation: eyeBlink 3200ms linear infinite;
 }
 
-.eye.left {
-  left: 0;
+.eye-v2.left {
+  left: 100%;
 }
 
-.eye.right {
-  left: 2rem;
+.eye-v2.right {
+  right: 100%;
 }
 
-.mouth {
+.mouth-v2 {
   position: absolute;
-  top: 1.125rem;
-  left: 0.8rem;
-  width: 1rem;
-  height: 0.125rem;
+  top: 100%;
+  left: 25%;
+  width: 50%;
+  height: 5%;
   background: #2a2927; /* Black */
   border-radius: 0;
 }
 
-.eye, .mouth {
-  box-shadow: inset 1px 2px 4px #121110;
+.eye-v2, .mouth-v2 {
+  box-shadow: inset 5% 5% 5% #121110;
 }
 
-.face-button:hover .mouth,
-.face-button:active .mouth {
-  left: 1rem;
-  width: 0.5rem;
-  height: 0.4rem;
-  border-radius: 1rem 1rem 0.125rem 0.125rem;
+/* --- C. HOVER / ACTIVE STATES (Pure CSS) --- */
+
+/* Hover state changes color/shadow, but NOT position (JS handles position) */
+.face-button-v2:hover {
+    box-shadow: inset 2px -4px 10px #fdda5f;
+    box-shadow: -5px 12px 12px rgba(211, 198, 174, 0.2);
 }
 
-.face-button:hover .eye,
-.face-button:active .eye {
-  height: 0.375rem;
-  width: 0.375rem;
-  box-shadow: 0 0 0 0.25rem #fff; /* White */
+/* Active/Mouth Open State */
+.face-button-v2:hover .mouth-v2 {
+    left: 31%;
+  	width: 35%;
+  	height: 20%;
+  	border-radius: 1rem 1rem 0.125rem 0.125rem;
+}
+
+/* Eye Blink/Active State */
+.face-button-v2:hover .eye-v2 {
+    height: 25%;
+  	width: 25%;
+  	box-shadow: 0 0 0 0.25rem #fff; /* White */
 }
 
 @keyframes eyeBlink {
@@ -84,5 +91,5 @@
   32%, 34% {
     transform: scale(1,0);
   }
+  
 }
-</style>
