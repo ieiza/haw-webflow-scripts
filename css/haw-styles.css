@@ -1,28 +1,412 @@
-[heading="1"] {
+/* Custom Attributes */
 
+[class="padding-null"] {
+ padding: 0px;
 }
-</style>
-<style>
-page-wrap{
+
+/* Heading Styles */
+
+.h1 {
+ display: inline-block;
+ vertical-align: baseline;
+ margin: 0rem 0rem 0rem 0rem;
+ padding: 0rem 0rem 0rem 0rem;
+ position: relative;
+ font-family: var(--_alias---font-family--heading-sans);
+ font-weight: var(--_alias---font-weight--heading-sans);
+ font-size: var(--_responsive---font-size--h1-sans);
+ line-height: var(--_responsive---line-height--h1-sans);
+ letter-spacing: var(--_responsive---letter-spacing--h1-sans);
+ text-align: left;
+ text-wrap: pretty;
+}
+
+.h1-serif {
+ display: inline-block;
+ vertical-align: baseline;
+ margin: 0rem 0rem 0rem 0rem;
+ padding: 0rem 0rem 0rem 0rem;
+ position: relative;
+ font-family: var(--_alias---font-family--heading-serif);
+ font-weight: var(--_alias---font-weight--heading-serif);
+ font-size: var(--_responsive---font-size--h1-serif);
+ line-height: var(--_responsive---line-height--h1-serif);
+ letter-spacing: var(--_responsive---letter-spacing--h1-serif);
+ text-align: left;
+ text-wrap: pretty;
+}
+
+.display {
+ display: inline-block;
+ vertical-align: baseline;
+ margin: 0rem 0rem 0rem 0rem;
+ padding: 0rem 0rem 0rem 0rem;
+ position: relative;
+ font-family: var(--_alias---font-family--heading-sans);
+ font-weight: var(--_alias---font-weight--heading-sans);
+ font-size: var(--_responsive---font-size--display-sans);
+ line-height: var(--_responsive---line-height--display-sans);
+ letter-spacing: var(--_responsive---letter-spacing--display-sans);
+ text-align: left;
+ text-wrap: pretty;
+}
+
+.display-serif {
+ display: inline-block;
+ vertical-align: baseline;
+ margin: 0rem 0rem 0rem 0rem;
+ padding: 0rem 0rem 0rem 0rem;
+ position: relative;
+ font-family: var(--_alias---font-family--heading-serif);
+ font-weight: var(--_alias---font-weight--heading-serif);
+ font-size: var(--_responsive---font-size--display-serif);
+ line-height: var(--_responsive---line-height--display-serif);
+ letter-spacing: var(--_responsive---letter-spacing--display-serif);
+ text-align: left;
+ text-wrap: pretty;
+}
+
+.h2 {
+ display: inline-block;
+ vertical-align: baseline;
+ margin: 0rem 0rem 0rem 0rem;
+ padding: 0rem 0rem 0rem 0rem;
+ position: relative;
+ font-family: var(--_alias---font-family--heading-sans);
+ font-weight: var(--_alias---font-weight--heading-sans);
+ font-size: var(--_responsive---font-size--h2-sans);
+ line-height: var(--_responsive---line-height--h2-sans);
+ letter-spacing: var(--_responsive---letter-spacing--h2-sans);
+ text-align: left;
+ text-wrap: pretty;
+}
+
+.h2-serif {
+ display: inline-block;
+ vertical-align: baseline;
+ margin: 0rem 0rem 0rem 0rem;
+ padding: 0rem 0rem 0rem 0rem;
+ position: relative;
+ font-family: var(--_alias---font-family--heading-serif);
+ font-weight: var(--_alias---font-weight--heading-serif);
+ font-size: var(--_responsive---font-size--h2-serif);
+ line-height: var(--_responsive---line-height--h2-serif);
+ letter-spacing: var(--_responsive---letter-spacing--h2-serif);
+ text-align: left;
+ text-wrap: pretty;
+}
+
+.h3 {
+ display: inline-block;
+ vertical-align: baseline;
+ margin: 0rem 0rem 0rem 0rem;
+ padding: 0rem 0rem 0rem 0rem;
+ position: relative;
+ font-family: var(--_alias---font-family--heading-sans);
+ font-weight: var(--_alias---font-weight--heading-sans);
+ font-size: var(--_responsive---font-size--h3-sans);
+ line-height: var(--_responsive---line-height--h3-sans);
+ letter-spacing: var(--_responsive---letter-spacing--h3-sans);
+ text-align: left;
+ text-wrap: pretty;
+}
+
+.h3-serif {
+ display: inline-block;
+ vertical-align: baseline;
+ margin: 0rem 0rem 0rem 0rem;
+ padding: 0rem 0rem 0rem 0rem;
+ position: relative;
+ font-family: var(--_alias---font-family--heading-serif);
+ font-weight: var(--_alias---font-weight--heading-serif);
+ font-size: var(--_responsive---font-size--h3-serif);
+ line-height: var(--_responsive---line-height--h3-serif);
+ letter-spacing: var(--_responsive---letter-spacing--h3-serif);
+ text-align: left;
+ text-wrap: pretty;
+}
+
+.h4 {
+ display: inline-block;
+ vertical-align: baseline;
+ margin: 0rem 0rem 0rem 0rem;
+ padding: 0rem 0rem 0rem 0rem;
+ position: relative;
+ font-family: var(--_alias---font-family--heading-sans);
+ font-weight: var(--_alias---font-weight--heading-sans);
+ font-size: var(--_responsive---font-size--h4-sans);
+ line-height: var(--_responsive---line-height--h4-sans);
+ letter-spacing: var(--_responsive---letter-spacing--h4-sans);
+ text-align: left;
+ text-wrap: pretty;
+}
+
+.h4-serif {
+ display: inline-block;
+ vertical-align: baseline;
+ margin: 0rem 0rem 0rem 0rem;
+ padding: 0rem 0rem 0rem 0rem;
+ position: relative;
+ font-family: var(--_alias---font-family--heading-serif);
+ font-weight: var(--_alias---font-weight--heading-serif);
+ font-size: var(--_responsive---font-size--h4-serif);
+ line-height: var(--_responsive---line-height--h4-serif);
+ letter-spacing: var(--_responsive---letter-spacing--h4-serif);
+ text-align: left;
+ text-wrap: pretty;
+}
+
+.h5 {
+ display: inline-block;
+ vertical-align: baseline;
+ margin: 0rem 0rem 0rem 0rem;
+ padding: 0rem 0rem 0rem 0rem;
+ position: relative;
+ font-family: var(--_alias---font-family--heading-sans);
+ font-weight: var(--_alias---font-weight--heading-sans);
+ font-size: var(--_responsive---font-size--h5-sans);
+ line-height: var(--_responsive---line-height--h5-sans);
+ letter-spacing: var(--_responsive---letter-spacing--h5-sans);
+ text-align: left;
+ text-wrap: pretty;
+}
+
+.h5-serif {
+ display: inline-block;
+ vertical-align: baseline;
+ margin: 0rem 0rem 0rem 0rem;
+ padding: 0rem 0rem 0rem 0rem;
+ position: relative;
+ font-family: var(--_alias---font-family--heading-serif);
+ font-weight: var(--_alias---font-weight--heading-serif);
+ font-size: var(--_responsive---font-size--h5-serif);
+ line-height: var(--_responsive---line-height--h5-serif);
+ letter-spacing: var(--_responsive---letter-spacing--h5-serif);
+ text-align: left;
+ text-wrap: pretty;
+}
+
+.h6 {
+ display: inline-block;
+ vertical-align: baseline;
+ margin: 0rem 0rem 0rem 0rem;
+ padding: 0rem 0rem 0rem 0rem;
+ position: relative;
+ font-family: var(--_alias---font-family--heading-sans);
+ font-weight: var(--_alias---font-weight--heading-sans);
+ font-size: var(--_responsive---font-size--h6-sans);
+ line-height: var(--_responsive---line-height--h6-sans);
+ letter-spacing: var(--_responsive---letter-spacing--h6-sans);
+ text-align: left;
+ text-wrap: pretty;
+}
+
+.h6-serif {
+ display: inline-block;
+ vertical-align: baseline;
+ margin: 0rem 0rem 0rem 0rem;
+ padding: 0rem 0rem 0rem 0rem;
+ position: relative;
+ font-family: var(--_alias---font-family--heading-serif);
+ font-weight: var(--_alias---font-weight--heading-serif);
+ font-size: var(--_responsive---font-size--h6-serif);
+ line-height: var(--_responsive---line-height--h6-serif);
+ letter-spacing: var(--_responsive---letter-spacing--h6-serif);
+ text-align: left;
+ text-wrap: pretty;
+}
+
+
+/* Body Styles */
+
+.body-lg--sans {
+  display: inline-block;
+  font-family: var(--_alias---font-family--body-sans);
+  font-weight: var(--_alias---font-weight--body-sans);
+  font-size: var(--_responsive---font-size--body-lg);
+  line-height: var(--_responsive---line-height--body-lg);
+  letter-spacing: var(--_responsive---letter-spacing--body-lg);
+  text-wrap: pretty;
+  grid-area: auto / auto / auto / span 8;
+}
+
+.body-md--sans {
+  display: inline-block;
+  font-family: var(--_alias---font-family--body-sans);
+  font-weight: var(--_alias---font-weight--body-sans);
+  font-size: var(--_responsive---font-size--body-md);
+  line-height: var(--_responsive---line-height--body-md);
+  letter-spacing: var(--_responsive---letter-spacing--body-md);
+  text-wrap: pretty;
+  grid-area: auto / auto / auto / span 6;
+}
+
+.body-sm--sans {
+  display: inline-block;
+  font-family: var(--_alias---font-family--body-sans);
+  font-weight: var(--_alias---font-weight--body-sans);
+  font-size: var(--_responsive---font-size--body-sm);
+  line-height: var(--_responsive---line-height--body-sm);
+  letter-spacing: var(--_responsive---letter-spacing--body-sm);
+  text-wrap: pretty;
+  grid-area: auto / auto / auto / span 4;
+}
+
+.text-marquee--sans {
+  display: inline-block;
+  font-family: var(--_alias---font-family--body-sans);
+  font-weight: var(--_alias---font-weight--text-marquee);
+  font-size: var(--_responsive---font-size--text-marquee);
+  line-height: var(--_responsive---line-height--text-marquee);
+  font-weight: var(--_alias---font-weight--text-marquee);
+  letter-spacing: var(--_responsive---letter-spacing--text-marquee);
+  text-transform: uppercase;
+}
+
+/* Button Styles */
+
+.button-lg {
+  position: relative;
+  display: inline-block;
+  padding-top: var(--_responsive---buttton--button-lg__padding-top);
+  padding-right: var(--_responsive---buttton--button-lg__hpadding);
+  padding-bottom: var(--_responsive---buttton--button-lg__padding-bottom);
+  padding-left: var(--_responsive---buttton--button-lg__hpadding);
+  border-style: solid;
+  border-color: black;
+  border-top-width: var(--_responsive---buttton--button-border-width-sm);
+  border-right-width: var(--_responsive---buttton--button-border-width-sm);
+  border-bottom-width: var(--_responsive---buttton--button-border-width-sm);
+  border-left-width: var(--_responsive---buttton--button-border-width-sm);
+  border-top-left-radius: var(--_alias---radius--radius-full);
+  border-top-right-radius: var(--_alias---radius--radius-full);
+  border-bottom-left-radius: var(--_alias---radius--radius-full);
+  border-bottom-right-radius: var(--_alias---radius--radius-full);
+  background-color: rgba(255, 255, 255, 0);
+  font-family: var(--_alias---font-family--button-sans);
+  font-size: var(--_responsive---font-size--button-lg-sans);
+  font-weight: var(--_alias---font-weight--button-lg-sans);
+  line-height: var(--_responsive---line-height--button-lg-sans);
+  letter-spacing: var(--_responsive---letter-spacing--button-lg-sans);
+  color: var(--_alias---color--black);
+}
+
+.button-lg-label--sans {
+  display: inline-block;
+  font-family: var(--_alias---font-family--button-sans);
+  font-size: var(--_responsive---font-size--button-lg-sans);
+  font-weight: var(--_alias---font-weight--button-lg-sans);
+  line-height: var(--_responsive---line-height--button-lg-sans);
+  letter-spacing: var(--_responsive---letter-spacing--button-lg-sans);
+}
+
+.button-md {
+  position: relative;
+  display: inline-block;
+  border-style: solid;
+  border-top-width: var(--_responsive---buttton--button-border-width-sm);
+  border-color: black;
+  border-right-width: var(--_responsive---buttton--button-border-width-sm);
+  border-bottom-width: var(--_responsive---buttton--button-border-width-sm);
+  border-left-width: var(--_responsive---buttton--button-border-width-sm);
+  border-top-left-radius: var(--_alias---radius--radius-full);
+  border-top-right-radius: var(--_alias---radius--radius-full);
+  border-bottom-left-radius: var(--_alias---radius--radius-full);
+  border-bottom-right-radius: var(--_alias---radius--radius-full);
+  background-color: rgba(255, 255, 255, 0);
+  font-family: var(--_alias---font-family--button-sans);
+  color: var(--_alias---color--black);
+  font-size: var(--_responsive---font-size--button-md-sans);
+  line-height: var(--_responsive---line-height--button-md-sans);
+  font-weight: var(--_alias---font-weight--button-md-sans);
+  letter-spacing: var(--_responsive---letter-spacing--button-md-sans);
+}
+
+.button-md-label--sans {
+  display: inline-block;
+  font-family: var(--_alias---font-family--button-sans);
+  font-size: var(--_responsive---font-size--button-md-sans);
+  font-weight: var(--_alias---font-weight--button-md-sans);
+  line-height: var(--_responsive---line-height--button-md-sans);
+  letter-spacing: var(--_responsive---letter-spacing--button-md-sans);
+}
+
+.button-sm {
+  position: relative;
+  display: inline-block;
+  padding-top: var(--_responsive---buttton--button-sm__padding-top);
+  padding-right: var(--_responsive---buttton--button-sm__hpadding);
+  padding-bottom: var(--_responsive---buttton--button-sm__padding-bottom);
+  padding-left: var(--_responsive---buttton--button-sm__hpadding);
+  border-style: solid;
+  border-top-width: var(--_responsive---buttton--button-border-width-sm);
+  border-color: black;
+  border-right-width: var(--_responsive---buttton--button-border-width-sm);
+  border-bottom-width: var(--_responsive---buttton--button-border-width-sm);
+  border-left-width: var(--_responsive---buttton--button-border-width-sm);
+  border-top-left-radius: var(--_alias---radius--radius-full);
+  border-top-right-radius: var(--_alias---radius--radius-full);
+  border-bottom-left-radius: var(--_alias---radius--radius-full);
+  border-bottom-right-radius: var(--_alias---radius--radius-full);
+  background-color: rgba(255, 255, 255, 0);
+  font-family: var(--_alias---font-family--button-sans);
+  color: var(--_alias---color--black);
+  font-size: var(--_responsive---font-size--button-sm-sans);
+  line-height: var(--_responsive---line-height--button-sm-sans);
+  font-weight: var(--_alias---font-weight--button-sm-sans);
+  letter-spacing: var(--_responsive---letter-spacing--button-sm-sans);
+}
+
+.button-sm-label--sans {
+  display: inline-block;
+  font-family: var(--_alias---font-family--button-sans);
+  font-size: var(--_responsive---font-size--button-sm-sans);
+  line-height: var(--_responsive---line-height--button-sm-sans);
+  font-weight: var(--_alias---font-weight--button-sm-sans);
+  letter-spacing: var(--_responsive---letter-spacing--button-sm-sans);
+}
+
+
+/* Page Element Styles */
+
+.grid {
+  position: relative;
+  display: grid;
+  place-items: stretch;
+  grid-auto-columns: 1fr;
+  grid-template-rows: auto;
+  width: 100%;
+  padding: var(--_responsive---grid--margin);
+  grid-template-columns: repeat(1, minmax(0px, 1fr));
+  column-gap: var(--_responsive---grid--gutter);
+  row-gap: var(--_responsive---grid--gutter);
+}
+
+.page-wrap {
  display: block;
  position: relative;
 }
-main{
+
+.main {
  display: block;
  position: relative;
 }
-section{
+
+.section {
   display: block;
   position: relative;
 }
-padding{
+
+.padding {
  display: block;
  position: relative;
 }
-container{
+
+.container {
  position: relative;
 }
-div{
+
+.div {
  position: relative;
 }
-</style>
+
